@@ -1,0 +1,131 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- <record model="ir.ui.view" id="reciclaje.list">
+      <field name="name">Reciclaje list</field>
+      <field name="model">reciclaje.reciclaje</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record> -->
+
+    <record model="ir.ui.view" id="reciclaje.persona_list">
+      <field name="name">Personas</field>
+      <field name="model">reciclaje.persona</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellidos"/>
+          <field name="correo"/>
+          <field name="materiales"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="reciclaje.material_list">
+      <field name="name">Materiales</field>
+      <field name="model">reciclaje.material</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tipo"/>
+          <field name="cantidad"/>
+          <field name="descripcion"/>
+          <field name="imagen"/>
+          <field name="persona"/>
+          <field name="empresa"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="reciclaje.empresa_list">
+      <field name="name">Empresas</field>
+      <field name="model">reciclaje.empresa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="direccion"/>
+          <field name="telefono"/>
+          <field name="materiales"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="reciclaje.material_form">
+      <field name="name">Formulario de materiales</field>
+      <field name="model">reciclaje.material</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="tipo"/>
+            <field name="cantidad"/>
+            <field name="descripcion"/>
+            <field name="imagen"/>
+            <field name="persona"/>
+            <field name="empresa"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="reciclaje.persona_window">
+      <field name="name">Personas</field>
+      <field name="res_model">reciclaje.persona</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="reciclaje.material_window">
+      <field name="name">Materiales</field>
+      <field name="res_model">reciclaje.material</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="reciclaje.empresa_window">
+      <field name="name">Empresas</field>
+      <field name="res_model">reciclaje.empresa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="reciclaje.action_server">
+      <field name="name">Reciclaje server</field>
+      <field name="model_id" ref="model_reciclaje_reciclaje"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Reciclaje" id="reciclaje.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Personas" id="reciclaje.menu_persona" parent="reciclaje.menu_root"/>
+    <menuitem name="Materiales" id="reciclaje.menu_material" parent="reciclaje.menu_root"/>
+    <menuitem name="Empresas" id="reciclaje.menu_empresa" parent="reciclaje.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Personas" id="reciclaje.menu_reciclaje_persona" parent="reciclaje.menu_persona"
+              action="reciclaje.persona_window"/>
+    <menuitem name="Materiales" id="reciclaje.menu_reciclaje_material" parent="reciclaje.menu_material"
+              action="reciclaje.material_window"/>
+    <menuitem name="Empresas" id="reciclaje.menu_reciclaje_empresa" parent="reciclaje.menu_empresa"
+              action="reciclaje.empresa_window"/>
+
+  </data>
+</odoo>

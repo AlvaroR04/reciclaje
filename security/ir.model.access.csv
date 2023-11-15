@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reciclaje_persona,reciclaje.persona,model_reciclaje_persona,base.group_user,1,1,1,1
+access_reciclaje_material,reciclaje.material,model_reciclaje_material,base.group_user,1,1,1,1
+access_reciclaje_empresa,reciclaje.empresa,model_reciclaje_empresa,base.group_user,1,1,1,1
