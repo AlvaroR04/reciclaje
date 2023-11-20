@@ -64,7 +64,7 @@
             <field name="tipo"/>
             <field name="cantidad"/>
             <field name="descripcion"/>
-            <field name="imagen"/>
+            <field name="imagen" widget="image" options='{"size": [512, 512]}'/>
             <field name="persona"/>
             <field name="empresa"/>
           </group>
